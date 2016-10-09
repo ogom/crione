@@ -27,3 +27,5 @@ npm install babel-preset-react --save-dev
 npm install redux --save-dev
 npm install redux-actions --save-dev
 npm install react-redux --save-dev
+
+npm install react-ace --save-dev
