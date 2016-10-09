@@ -2,8 +2,10 @@
   "name": "setgems",
   "version": "0.0.1",
   "private": true,
+  "main": "app/main.js",
   "scripts": {
-    "start": "webpack-dev-server -d --progress --colors",
+    "start": "electron .",
+    "dev-server": "webpack-dev-server -d --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

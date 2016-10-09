@@ -9,6 +9,7 @@ module.exports = {
     html: './app/index.html'
   },
   output: {
+    publicPath: 'http://localhost:4000/',
     filename: 'bundle.js'
   },
   plugins: [
