@@ -30,3 +30,4 @@ npm install react-redux --save-dev
 
 npm install react-ace --save-dev
 npm install electron --save-dev
+npm install babel-register --save-dev

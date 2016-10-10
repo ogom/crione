@@ -1,14 +1,19 @@
+'use strict'
+
+var path = require('path')
 var webpack = require('webpack')
 var postcssImport = require('postcss-import')
 var autoprefixer = require('autoprefixer')
 var precss = require('precss')
 
 module.exports = {
-  entry: {
-    jsx: './lib/index',
-    html: './app/index.html'
-  },
+  entry: [
+    'webpack-dev-server/client?http://localhost:4000/',
+    'webpack/hot/dev-server',
+    path.join(__dirname, '/lib/index')
+  ],
   output: {
+    path: path.join(__dirname, '/dist/'),
     publicPath: 'http://localhost:4000/',
     filename: 'bundle.js'
   },
@@ -52,10 +57,5 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.css']
   },
-  devServer: {
-    hot: true,
-    port: 4000,
-    inline: true,
-    historyApiFallback: true
-  }
+  target: 'electron'
 }

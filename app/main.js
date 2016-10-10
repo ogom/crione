@@ -1,6 +1,5 @@
-const electron = require('electron')
-const app = electron.app
-const BrowserWindow = electron.BrowserWindow
+import { app, BrowserWindow, Menu, shell } from 'electron'
+import menus from './menus'
 
 let mainWindow
 
@@ -11,6 +10,7 @@ function createWindow () {
   mainWindow.on('closed', function () {
     mainWindow = null
   })
+  Menu.setApplicationMenu(Menu.buildFromTemplate(menus()))
 }
 
 app.on('ready', createWindow)
