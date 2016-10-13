@@ -1,13 +1,13 @@
 import { dialog } from 'electron'
 
-export function open (focusedWindow) {
-  dialog.showOpenDialog({properties: ['openFile']}, function (filenames) {
+exports.open = (focusedWindow) => {
+  dialog.showOpenDialog({properties: ['openFile']}, (filenames) => {
     if (filenames) {
       focusedWindow.webContents.send('selected-file', filenames[0])
     }
   })
 }
 
-export function save (focusedWindow) {
+exports.save = (focusedWindow) => {
   focusedWindow.webContents.send('save-file')
 }

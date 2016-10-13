@@ -16,8 +16,8 @@ body {
   padding: 5px;
   border: 1px solid hsl(0,0%,88%);
   background: hsl(0,0%,96%);
-  -webkit-flex: 3 1 60%;
-          flex: 3 1 60%;
+  -webkit-flex: 3 1 50%;
+          flex: 3 1 50%;
   -webkit-order: 2;
           order: 2;
  }
@@ -26,8 +26,8 @@ body {
   padding: 5px;
   border: 1px solid hsl(0,0%,88%);
   background: hsl(0,0%,96%);
-  -webkit-flex: 1 6 20%;
-          flex: 1 6 20%;
+  -webkit-flex: 1 6 0%;
+          flex: 1 6 0%;
   -webkit-order: 1;
           order: 1;
  }
@@ -36,8 +36,8 @@ body {
   padding: 5px;
   border: 1px solid hsl(0,0%,88%);
   background: hsl(0,0%,96%);
-  -webkit-flex: 1 6 20%;
-          flex: 1 6 20%;
+  -webkit-flex: 1 6 50%;
+          flex: 1 6 50%;
   -webkit-order: 3;
           order: 3;
  }

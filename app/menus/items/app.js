@@ -5,6 +5,7 @@ export default {
   label: appName,
   submenu: [
     {
+      label: 'About Crione',
       role: 'about'
     },
     {
