@@ -1,4 +1,4 @@
-import { ipcMain } from 'electron'
+import { dialog, ipcMain } from 'electron'
 import * as terminal from '../../utils/terminal'
 
 import fs from 'fs'
@@ -8,12 +8,6 @@ import { spawn } from 'child_process'
 export default {
   label: 'Gadget',
   submenu: [
-    {
-      label: 'Info',
-      click(item, focusedWindow) {
-        terminal.info(focusedWindow)
-      }
-    },
     {
       label: 'Write',
       click(item, focusedWindow) {
@@ -38,6 +32,23 @@ export default {
         focusedWindow.webContents.send('gadget::dispatch',
           {type: 'build'}
         )
+      }
+    },
+    {
+      type: 'separator'
+    },
+    {
+      label: 'Info',
+      click(item, focusedWindow) {
+        terminal.info((err, res) => {
+          const options = {
+            type: 'info',
+            title: 'GR-CITRUS',
+            buttons: ['Ok'],
+            message: `GR-CITRUS\n\ncitrus: ${res.citrus}\nmruby: ${res.mruby}`
+          }
+          dialog.showMessageBox(focusedWindow, options, () => {})
+        })
       }
     }
   ]

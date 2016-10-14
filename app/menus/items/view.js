@@ -47,23 +47,6 @@ export default {
           focusedWindow.toggleDevTools()
         }
       }
-    },
-    {
-      type: 'separator'
-    },
-    {
-      label: 'App Menu Demo',
-      click(item, focusedWindow) {
-        if (focusedWindow) {
-          const options = {
-            type: 'info',
-            title: 'Application Menu Demo',
-            buttons: ['Ok'],
-            message: 'This demo is for the Menu section, showing how to create a clickable menu item in the application menu.'
-          }
-          dialog.showMessageBox(focusedWindow, options, () => {})
-        }
-      }
     }
   ]
 }

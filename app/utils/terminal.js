@@ -12,9 +12,9 @@ const client = setgem.createClient({
   }
 })
 
-export function info (focusedWindow) {
+export function info (cb) {
   client.citrus.info((err, res) => {
-    focusedWindow.webContents.send('info-gadget', res)
+    cb(err, res)
   })
 }
 
