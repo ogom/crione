@@ -5,6 +5,7 @@ var webpack = require('webpack')
 var postcssImport = require('postcss-import')
 var autoprefixer = require('autoprefixer')
 var precss = require('precss')
+var calc = require('postcss-calc')
 
 module.exports = {
   entry: [
@@ -48,10 +49,11 @@ module.exports = {
   postcss(webpack) {
     return [
       postcssImport({
-          addDependencyTo: webpack
+        addDependencyTo: webpack
       }),
       autoprefixer,
-      precss
+      precss,
+      calc
     ]
   },
   resolve: {

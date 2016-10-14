@@ -26,6 +26,7 @@ npm install file-loader --save-dev
 npm install style-loader --save-dev
 npm install css-loader --save-dev
 npm install postcss-loader --save-dev
+npm install postcss-calc --save-dev
 
 npm install electron --save-dev
 

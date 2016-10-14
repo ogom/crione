@@ -1,0 +1,25 @@
+.ace {
+  height: calc(100vh - 60px);
+}
+
+.header {
+  top: 0;
+  background-color: hsl(0,0%,92%);
+  height: 20px;
+  padding-top: 6px;
+  padding-bottom: 4px;
+  padding-left: 10px;
+  padding-right: 2px;
+  border-bottom: 1px solid hsl(0,0%,88%);
+}
+
+.footer {
+  bottom: 0;
+  background-color: hsl(0,0%,92%);
+  height: 20px;
+  padding-top: 6px;
+  padding-bottom: 4px;
+  padding-left: 10px;
+  padding-right: 2px;
+  border-top: 1px solid hsl(0,0%,88%);
+}

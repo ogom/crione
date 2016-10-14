@@ -18,7 +18,7 @@ export default {
     },
     {
       label: 'Run',
-      accelerator: 'CmdOrCtrl+R',
+      //accelerator: 'CmdOrCtrl+R',
       click(item, focusedWindow) {
         focusedWindow.webContents.send('gadget::dispatch',
           {type: 'run'}
