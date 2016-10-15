@@ -11,6 +11,7 @@ npm install precss --save-dev
 npm install react --save-dev
 npm install react-dom --save-dev
 npm install react-hot-loader@1.3.0 --save-dev
+npm install react-split-pane --save-dev
 
 npm install babel-core --save-dev
 npm install babel-loader --save-dev

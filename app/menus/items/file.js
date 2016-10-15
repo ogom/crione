@@ -1,4 +1,4 @@
-import * as files from '../../utils/files'
+import * as files from '../../actions/file'
 
 export default {
   label: 'File',

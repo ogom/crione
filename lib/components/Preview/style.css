@@ -1,5 +1,6 @@
 .ace {
   height: calc(100vh - 60px);
+  padding-left: 10px;
 }
 
 .header {

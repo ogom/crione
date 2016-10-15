@@ -6,7 +6,7 @@ import view from './items/view'
 import window from './items/window'
 import help from './items/help'
 
-export default function configureMenu () {
+export default function Menus () {
   return [
     app,
     file,

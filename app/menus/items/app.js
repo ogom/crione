@@ -1,8 +1,7 @@
 import { app } from 'electron'
-const appName = app.getName()
 
 export default {
-  label: appName,
+  label: app.getName(),
   submenu: [
     {
       label: 'About Crione',

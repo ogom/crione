@@ -1,4 +1,4 @@
-import { BrowserWindow, dialog } from 'electron'
+import { BrowserWindow } from 'electron'
 
 export default {
   label: 'View',
