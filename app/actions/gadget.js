@@ -56,8 +56,8 @@ exports.build = (focusedWindow) => {
 }
 
 ipcMain.on('ipc::runGadget', (event, state, action) => {
-  const command = ['R', state.file.name, null].join(' ')
-  send(state.gadget.serialport, command, data, event)
+  const command = ['R', state.file.name].join(' ')
+  send(state.gadget.serialport, command, null, event)
 })
 
 ipcMain.on('ipc::writeGadget', (event, state, action) => {
