@@ -7,7 +7,7 @@ export default {
     {
       label: 'Learn More',
       click() {
-        shell.openExternal('http://electron.atom.io')
+        shell.openExternal('https://github.com/ogom/crione')
       }
     }
   ]

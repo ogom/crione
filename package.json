@@ -1,6 +1,6 @@
 {
   "name": "setgems",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": true,
   "scripts": {
     "start": "electron -r babel-register ./dev/index.js",
@@ -8,6 +8,10 @@
     "postinstall": "cd node_modules/serialport && ./node_modules/.bin/node-pre-gyp rebuild --target=1.4.3 --arch=x64 --dist-url=https://atom.io/download/atom-shell",
     "test": "jest",
     "test:watch": "npm test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ogom/crione.git"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.0",

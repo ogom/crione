@@ -2,6 +2,7 @@
 
 ## npm
 
+```
 npm install webpack --save-dev
 npm install webpack-dev-server --save-dev
 npm install postcss-import --save-dev
@@ -32,3 +33,4 @@ npm install postcss-calc --save-dev
 npm install electron --save-dev
 npm install setgem --save-dev
 npm install jest --save-dev
+```
