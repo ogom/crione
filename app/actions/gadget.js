@@ -13,33 +13,37 @@ const reOutput = new RegExp(/^R|^W|^L/)
 
 exports.connect = (focusedWindow) => {
   ports((items) => {
-    const options = {
-      type: 'info',
-      title: 'Connect',
-      buttons: items,
-      message: 'Connect Serial Port'
-    }
-    dialog.showMessageBox(focusedWindow, options, (index) => {
-      const serialport = {
-        port: items[index],
-        options: {
-          baudRate: config.serialport.baud_rate,
-          dataBits: config.serialport.data_bits,
-          parity: config.serialport.parity,
-          stopBits: config.serialport.stop_bits
-        }
+    if (items.length > 0) {
+      const options = {
+        type: 'info',
+        title: 'Connect',
+        buttons: items,
+        message: 'Connect Serial Port'
       }
-      const client = setgem.createClient({serialport: serialport})
-      client.citrus.info((err, res) => {
-        const gadget = {
-          serialport: serialport,
-          version: res
+      dialog.showMessageBox(focusedWindow, options, (index) => {
+        const serialport = {
+          port: items[index],
+          options: {
+            baudRate: config.serialport.baud_rate,
+            dataBits: config.serialport.data_bits,
+            parity: config.serialport.parity,
+            stopBits: config.serialport.stop_bits
+          }
         }
-        focusedWindow.webContents.send('ipc::dispatch',
-          actions.selectedGadget({gadget: gadget})
-        )
+        const client = setgem.createClient({serialport: serialport})
+        client.citrus.info((err, res) => {
+          const gadget = {
+            serialport: serialport,
+            version: res
+          }
+          focusedWindow.webContents.send('ipc::dispatch',
+            actions.selectedGadget({gadget: gadget})
+          )
+        })
       })
-    })
+    } else {
+      dialog.showErrorBox('No target of port', 'Connect to the gadget is required')
+    }
   })
 }
 

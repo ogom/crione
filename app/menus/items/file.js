@@ -1,4 +1,4 @@
-import * as files from '../../actions/file'
+import * as file from '../../actions/file'
 
 export default {
   label: 'File',
@@ -7,20 +7,22 @@ export default {
       label: 'Open...',
       accelerator: 'CmdOrCtrl+O',
       click(item, focusedWindow) {
-        files.open(focusedWindow)
+        file.open(focusedWindow)
       }
     },
     {
       label: 'Save',
       accelerator: 'CmdOrCtrl+S',
       click(item, focusedWindow) {
-        files.save(focusedWindow)
+        file.save(focusedWindow)
       }
     },
     {
       label: 'Save As...',
       accelerator: 'Shift+CmdOrCtrl+S',
-      click() {}
+      click(item, focusedWindow) {
+        file.saveAs(focusedWindow)
+      }
     },
     {
       type: 'separator'
