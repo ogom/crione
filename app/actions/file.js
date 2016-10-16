@@ -21,10 +21,10 @@ exports.open = (focusedWindow) => {
 }
 
 exports.save = (focusedWindow) => {
-  focusedWindow.webContents.send('ipc::getState', actions.saveFile())
+  focusedWindow.webContents.send('ipc::acceptAction', actions.saveFile())
 }
 
-ipcMain.on('ipc::saveFile', (event, state, action) => {
+ipcMain.on('ipc::nativeAction::saveFile', (event, state, action) => {
   fs.writeFileSync(state.file.path, state.file.value)
   event.sender.send('ipc::dispatch', action)
 })

@@ -44,30 +44,30 @@ exports.connect = (focusedWindow) => {
 }
 
 exports.run = (focusedWindow) => {
-  focusedWindow.webContents.send('ipc::getState', actions.runGadget())
+  focusedWindow.webContents.send('ipc::acceptAction', actions.runGadget())
 }
 
 exports.write = (focusedWindow) => {
-  focusedWindow.webContents.send('ipc::getState', actions.writeGadget())
+  focusedWindow.webContents.send('ipc::acceptAction', actions.writeGadget())
 }
 
 exports.build = (focusedWindow) => {
-  focusedWindow.webContents.send('ipc::getState', actions.buildGadget())
+  focusedWindow.webContents.send('ipc::acceptAction', actions.buildGadget())
 }
 
-ipcMain.on('ipc::runGadget', (event, state, action) => {
+ipcMain.on('ipc::nativeAction::runGadget', (event, state, action) => {
   const command = ['R', state.file.name].join(' ')
   send(state.gadget.serialport, command, null, event)
 })
 
-ipcMain.on('ipc::writeGadget', (event, state, action) => {
+ipcMain.on('ipc::nativeAction::writeGadget', (event, state, action) => {
   readmrb(state.file.path, true, (err, data) => {
     const command = ['W', state.file.name + '.mrb', data.length].join(' ')
     send(state.gadget.serialport, command, data, event)
   })
 })
 
-ipcMain.on('ipc::buildGadget', (event, state, action) => {
+ipcMain.on('ipc::nativeAction::buildGadget', (event, state, action) => {
   readmrb(state.file.path, true, (err, data) => {
     const command = ['X', state.file.name + '.mrb', data.length].join(' ')
     send(state.gadget.serialport, command, data, event)
