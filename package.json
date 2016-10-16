@@ -5,7 +5,7 @@
   "scripts": {
     "start": "electron -r babel-register ./dev/index.js",
     "webpack-details": "webpack --display-error-details",
-    "postinstall": "cd node_modules/serialport && ./node_modules/.bin/node-pre-gyp rebuild --target=1.4.3 --arch=x64 --dist-url=https://atom.io/download/atom-shell",
+    "post-install": "cd node_modules/serialport && ./node_modules/.bin/node-pre-gyp rebuild --target=1.4.3 --arch=x64 --dist-url=https://atom.io/download/atom-shell",
     "test": "jest",
     "test:watch": "npm test -- --watch"
   },
