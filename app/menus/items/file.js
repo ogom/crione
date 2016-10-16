@@ -23,25 +23,6 @@ export default {
       click(item, focusedWindow) {
         file.saveAs(focusedWindow)
       }
-    },
-    {
-      type: 'separator'
-    },
-    {
-      label: 'Export As HTML',
-      click() {}
-    },
-    {
-      label: 'Export As PDF',
-      click() {}
-    },
-    {
-      type: 'separator'
-    },
-    {
-      label: 'Print',
-      accelerator: 'CmdOrCtrl+P',
-      click() {}
     }
   ]
 }

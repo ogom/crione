@@ -4,21 +4,6 @@ export default {
   label: 'View',
   submenu: [
     {
-      label: 'Reload',
-      click(item, focusedWindow) {
-        if (focusedWindow) {
-          if (focusedWindow.id === 1) {
-            BrowserWindow.getAllWindows().forEach((win) => {
-              if (win.id > 1) {
-                win.close()
-              }
-            })
-          }
-          focusedWindow.reload()
-        }
-      }
-    },
-    {
       label: 'Toggle Full Screen',
       accelerator: (() => {
         if (process.platform === 'darwin') {

@@ -1,36 +1,51 @@
-# setgems
+# Crione
 
-## npm
+[![Build Status](https://travis-ci.org/ogom/crione.png?branch=master)](https://travis-ci.org/ogom/crione)
 
+Crione is [GR-CITRUS](http://gadget.renesas.com/ja/product/citrus.html) GUI client.
+
+[![https://gyazo.com/6c627c8238512683f3aef303f43ddf82](https://i.gyazo.com/6c627c8238512683f3aef303f43ddf82.gif)](https://gyazo.com/6c627c8238512683f3aef303f43ddf82)
+
+## Features
+
+* GUI Editor and Serial teraterm.
+* Port to be selected in the automatic to see the manufacturer of RENESAS.
+* Compile [mruby](http://mruby.org/) and Send Textfile.
+
+## Requirements
+
+* [mruby](https://github.com/mruby/mruby)
+* [Serialport](https://github.com/EmergingTechnologyAdvisors/node-serialport)
+
+## Installation
+
+```bash
+$ git clone https://github.com/ogom/crione.git
+$ cd crione/
+$ npm install
+$ npm start
 ```
-npm install webpack --save-dev
-npm install webpack-dev-server --save-dev
-npm install postcss-import --save-dev
-npm install autoprefixer --save-dev
-npm install precss --save-dev
 
-npm install react --save-dev
-npm install react-dom --save-dev
-npm install react-hot-loader@1.3.0 --save-dev
-npm install react-split-pane --save-dev
+## Usage
 
-npm install babel-core --save-dev
-npm install babel-loader --save-dev
-npm install babel-preset-es2015 --save-dev
-npm install babel-preset-react --save-dev
+### Connect to the gadget.
 
-npm install redux --save-dev
-npm install react-redux --save-dev
-npm install react-ace --save-dev
-npm install redux-actions --save-dev
+[![https://gyazo.com/be810ad5b7aebcd66af9bc55feb9569a](https://i.gyazo.com/be810ad5b7aebcd66af9bc55feb9569a.png)](https://gyazo.com/be810ad5b7aebcd66af9bc55feb9569a)
 
-npm install file-loader --save-dev
-npm install style-loader --save-dev
-npm install css-loader --save-dev
-npm install postcss-loader --save-dev
-npm install postcss-calc --save-dev
+### Edit the programming code.
 
-npm install electron --save-dev
-npm install setgem --save-dev
-npm install jest --save-dev
+[![https://gyazo.com/8cff9304bdd187745ef5e7f1cc369610](https://i.gyazo.com/8cff9304bdd187745ef5e7f1cc369610.png)](https://gyazo.com/8cff9304bdd187745ef5e7f1cc369610)
+
+### Writing and Running on the gadget.
+
+[![https://gyazo.com/3fa9819a41d56b2feef41ae322b5963c](https://i.gyazo.com/3fa9819a41d56b2feef41ae322b5963c.png)](https://gyazo.com/3fa9819a41d56b2feef41ae322b5963c)
+
+## Tests
+
+```bash
+$ npm test
 ```
+
+## Licence
+
+* MIT
