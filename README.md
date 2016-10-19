@@ -1,4 +1,10 @@
-# Crione
+<h1 align="center">
+  <br>
+  <a href="https://github.com/ogom/crione"><img src="https://raw.githubusercontent.com/ogom/crione/master/assets/icon.png" alt="Crione" width="200"></a>
+  <br>
+  Crione
+  <br>
+</h1>
 
 [![Build Status](https://travis-ci.org/ogom/crione.png?branch=master)](https://travis-ci.org/ogom/crione)
 
