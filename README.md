@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/ogom/crione"><img src="https://raw.githubusercontent.com/ogom/crione/master/assets/icon.png" alt="Crione" width="200"></a>
+  <a href="https://github.com/ogom/crione"><img src="https://dl.dropboxusercontent.com/u/14690051/images/icon/icon.png" alt="Crione" width="200"></a>
   <br>
   Crione
   <br>
