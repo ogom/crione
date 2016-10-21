@@ -1,12 +1,12 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/ogom/crione"><img src="https://dl.dropboxusercontent.com/u/14690051/images/icon/icon.png" alt="Crione" width="200"></a>
+  <a href="https://github.com/ogom/crione"><img src="https://raw.githubusercontent.com/ogom/crione/master/assets/icon.png" alt="Crione" width="200"></a>
   <br>
   Crione
   <br>
 </h1>
 
-[![Build Status](https://travis-ci.org/ogom/crione.png?branch=master)](https://travis-ci.org/ogom/crione)
+[![Build Status](https://travis-ci.org/ogom/crione.svg?branch=master)](https://travis-ci.org/ogom/crione)
 
 Crione is [GR-CITRUS](http://gadget.renesas.com/ja/product/citrus.html) GUI client.
 
@@ -29,6 +29,7 @@ Crione is [GR-CITRUS](http://gadget.renesas.com/ja/product/citrus.html) GUI clie
 $ git clone https://github.com/ogom/crione.git
 $ cd crione/
 $ npm install
+$ npm run post-install
 $ npm start
 ```
 
