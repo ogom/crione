@@ -25,6 +25,17 @@ Crione is [GR-CITRUS](http://gadget.renesas.com/ja/product/citrus.html) GUI clie
 
 ## Installation
 
+### mruby
+
+```bash
+$ git clone https://github.com/mruby/mruby.git
+$ cd mruby/
+$ make
+$ export PATH=$PATH:`pwd`/bin
+```
+
+### crione
+
 ```bash
 $ git clone https://github.com/ogom/crione.git
 $ cd crione/
