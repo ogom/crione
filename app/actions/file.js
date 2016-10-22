@@ -1,7 +1,7 @@
-import * as actions from '../../lib/actions'
-import { ipcMain, dialog } from 'electron'
-import fs from 'fs'
-import path from 'path'
+const actions = require('.')
+const { ipcMain, dialog } = require('electron')
+const fs = require('fs')
+const path = require('path')
 
 const home = process.env[process.platform == 'win32' ? 'USERPROFILE' : 'HOME']
 const reHome = new RegExp('^' + home)

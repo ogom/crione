@@ -1,6 +1,6 @@
-import { BrowserWindow } from 'electron'
+const { BrowserWindow } = require('electron')
 
-export default {
+module.exports = {
   label: 'View',
   submenu: [
     {

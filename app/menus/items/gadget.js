@@ -1,6 +1,6 @@
-import * as gadget from '../../actions/gadget'
+const gadget = require('../../actions/gadget')
 
-export default {
+module.exports = {
   label: 'Gadget',
   submenu: [
     {

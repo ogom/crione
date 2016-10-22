@@ -1,6 +1,6 @@
-import { app } from 'electron'
+const { app } = require('electron')
 
-export default {
+module.exports = {
   label: app.getName(),
   submenu: [
     {

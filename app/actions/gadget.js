@@ -1,11 +1,11 @@
-import * as actions from '../../lib/actions'
-import { ipcMain, dialog } from 'electron'
-import fs from 'fs'
-import path from 'path'
-import { spawn } from 'child_process'
-import SerialPort from 'serialport'
-import setgem from 'setgem'
-import config from '../config'
+const actions = require('.')
+const { ipcMain, dialog } = require('electron')
+const fs = require('fs')
+const path = require('path')
+const { spawn } = require('child_process')
+const SerialPort = require('serialport')
+const setgem = require('setgem')
+const config = require('../config')
 
 const reGT = new RegExp(/\r\n>$/)
 const reWaiting = new RegExp(/\r\nWaiting/)

@@ -1,5 +1,5 @@
-import { app, BrowserWindow, Menu, shell } from 'electron'
-import menus from './menus'
+const { app, BrowserWindow, Menu, shell } = require('electron')
+const menus = require('./menus')
 
 let mainWindow
 
@@ -10,7 +10,7 @@ function createWindow () {
     mainWindow = null
   })
   Menu.setApplicationMenu(Menu.buildFromTemplate(menus()))
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV == 'development') {
     mainWindow.webContents.openDevTools()
   }
 }

@@ -1,12 +1,12 @@
-import app from './items/app'
-import file from './items/file'
-import edit from './items/edit'
-import gadget from './items/gadget'
-import view from './items/view'
-import window from './items/window'
-import help from './items/help'
+const app = require('./items/app')
+const file = require('./items/file')
+const edit = require('./items/edit')
+const gadget = require('./items/gadget')
+const view = require('./items/view')
+const window = require('./items/window')
+const help = require('./items/help')
 
-export default function Menus () {
+module.exports = function Menus () {
   return [
     app,
     file,

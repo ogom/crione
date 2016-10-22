@@ -1,6 +1,6 @@
-import { shell } from 'electron'
+const { shell } = require('electron')
 
-export default {
+module.exports = {
   label: 'Help',
   role: 'help',
   submenu: [

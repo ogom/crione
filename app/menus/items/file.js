@@ -1,6 +1,6 @@
-import * as file from '../../actions/file'
+const file = require('../../actions/file')
 
-export default {
+module.exports = {
   label: 'File',
   submenu: [
     {
