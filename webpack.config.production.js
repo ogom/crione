@@ -9,17 +9,13 @@ var calc = require('postcss-calc')
 
 module.exports = {
   entry: [
-    'webpack-dev-server/client?http://localhost:4000/',
-    'webpack/hot/dev-server',
     path.join(__dirname, '/lib/index')
   ],
   output: {
-    path: path.join(__dirname, '/dist/'),
-    publicPath: 'http://localhost:4000/dist/',
+    path: path.join(__dirname, '/app/dist/'),
     filename: 'bundle.js'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
   ],
   module: {
     loaders: [
@@ -40,7 +36,6 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loaders: [
-          'react-hot',
           'babel'
         ]
       }

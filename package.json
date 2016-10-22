@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "electron -r babel-register ./dev/index.js",
-    "webpack-details": "webpack --display-error-details",
+    "start": "NODE_ENV=development electron -r babel-register ./dev/index.js",
+    "start:production": "NODE_ENV=production electron -r babel-register ./app/main.js",
+    "build": "NODE_ENV=production webpack -p --config webpack.config.production.js",
     "post-install": "cd node_modules/serialport && ./node_modules/.bin/node-pre-gyp rebuild --target=1.4.3 --arch=x64 --dist-url=https://atom.io/download/atom-shell",
+    "webpack-details": "webpack --display-error-details",
     "test": "jest",
     "test:no-cache": "jest --no-cache",
     "test:watch": "npm test -- --watch"

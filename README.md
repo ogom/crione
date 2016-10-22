@@ -58,6 +58,13 @@ $ npm start
 
 [![https://gyazo.com/3fa9819a41d56b2feef41ae322b5963c](https://i.gyazo.com/3fa9819a41d56b2feef41ae322b5963c.png)](https://gyazo.com/3fa9819a41d56b2feef41ae322b5963c)
 
+## Build
+
+```bash
+$ npm run build
+$ npm run start:production
+```
+
 ## Tests
 
 ```bash
