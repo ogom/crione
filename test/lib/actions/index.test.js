@@ -1,14 +1,14 @@
 import * as actions from '../../../lib/actions'
 
 describe('actions', () => {
-  it('should create an action to save a edit', () => {
+  it('should create an action to attach a file', () => {
     const value = '#!mruby'
     const expectedAction = {
-      type: 'saveEdit',
+      type: 'attachFile',
       payload: value
     }
     expect(
-      actions.saveEdit(value)
+      actions.attachFile(value)
     ).toEqual(
       expectedAction
     )

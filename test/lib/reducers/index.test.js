@@ -36,11 +36,11 @@ describe('reducers', () => {
     )
   })
 
-  it('should return the save a edit', () => {
+  it('should return the attach a file', () => {
     const value = '#!mruby'
     state.file.value = value
     expect(
-      reducers(undefined, actions.saveEdit(value))
+      reducers(undefined, actions.attachFile(value))
     ).toEqual(
       state
     )
