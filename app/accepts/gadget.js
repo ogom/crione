@@ -1,11 +1,12 @@
-const actions = require('.')
-const { ipcMain, dialog } = require('electron')
 const fs = require('fs')
 const path = require('path')
 const { spawn } = require('child_process')
+const { ipcMain, dialog } = require('electron')
 const SerialPort = require('serialport')
+const settings = require('electron-settings')
 const setgem = require('setgem')
 const config = require('../config')
+const actions = require('../actions')
 
 const reGT = new RegExp(/\r\n>$/)
 const reWaiting = new RegExp(/\r\nWaiting/)
@@ -30,15 +31,10 @@ exports.connect = (focusedWindow) => {
             stopBits: config.serialport.stop_bits
           }
         }
-        const client = setgem.createClient({serialport: serialport})
-        client.citrus.info((err, res) => {
-          const gadget = {
-            serialport: serialport,
-            version: res
-          }
-          focusedWindow.webContents.send('ipc::dispatch',
-            actions.selectedGadget({gadget: gadget})
-          )
+        settings.set('crione.connection.serialport',
+          serialport
+        ).then(() => {
+          this.attachPort(focusedWindow.webContents)
         })
       })
     } else {
@@ -59,24 +55,23 @@ exports.build = (focusedWindow) => {
   focusedWindow.webContents.send('ipc::acceptAction', actions.buildGadget())
 }
 
-ipcMain.on('ipc::nativeAction::runGadget', (event, state, action) => {
-  const command = ['R', state.file.name].join(' ')
-  send(state.gadget.serialport, command, null, event)
-})
-
-ipcMain.on('ipc::nativeAction::writeGadget', (event, state, action) => {
-  readmrb(state.file.path, true, (err, data) => {
-    const command = ['W', state.file.name + '.mrb', data.length].join(' ')
-    send(state.gadget.serialport, command, data, event)
+exports.attachPort = (sender) => {
+  settings.get('crione.connection.serialport').then(serialport => {
+    if (serialport) {
+      sender.send('ipc::dispatch', actions.selectPort(serialport))
+      showGadget(serialport, (version) => {
+        sender.send('ipc::dispatch', actions.attachGadget(version))
+      })
+    }
   })
-})
+}
 
-ipcMain.on('ipc::nativeAction::buildGadget', (event, state, action) => {
-  readmrb(state.file.path, true, (err, data) => {
-    const command = ['X', state.file.name + '.mrb', data.length].join(' ')
-    send(state.gadget.serialport, command, data, event)
+function showGadget (serialport, cb) {
+  const client = setgem.createClient({serialport: serialport})
+  client.citrus.info((err, res) => {
+    cb(res)
   })
-})
+}
 
 function ports (cb) {
   SerialPort.list(function(err, ports) {
@@ -93,11 +88,11 @@ function ports (cb) {
   })
 }
 
-function readmrb (file, build, cb) {
+function readmrb (file, mrbc, build, cb) {
   const mrb = path.join(path.dirname(file), path.basename(file, path.extname(file)) + '.mrb')
 
   if (build) {
-    const ps = spawn('mrbc', ['-g', path.resolve(file)])
+    const ps = spawn(mrbc, ['-g', path.resolve(file)])
     ps.stdout.on('data', function (data) {
       //console.log(data.toString())
     })
@@ -146,3 +141,34 @@ function send (serialport, command, data, event) {
     port.write(command + '\n')
   })
 }
+
+ipcMain.on('ipc::nativeAction::runGadget', (event, state, action) => {
+  if (state.file.name) {
+    const command = ['R', state.file.name].join(' ')
+    send(state.connection.serialport, command, null, event)
+  } else {
+    dialog.showErrorBox('No file of .rb', 'Select the file of .rb')
+  }
+})
+
+ipcMain.on('ipc::nativeAction::writeGadget', (event, state, action) => {
+  if (state.file.path) {
+    readmrb(state.file.path, state.tools.mrbc.path, true, (err, data) => {
+      const command = ['W', state.file.name + '.mrb', data.length].join(' ')
+      send(state.connection.serialport, command, data, event)
+    })
+  } else {
+    dialog.showErrorBox('No file of mrbc', 'Select the file of mrbc')
+  }
+})
+
+ipcMain.on('ipc::nativeAction::buildGadget', (event, state, action) => {
+  if (state.file.path) {
+    readmrb(state.file.path, state.tools.mrbc.path, true, (err, data) => {
+      const command = ['X', state.file.name + '.mrb', data.length].join(' ')
+      send(state.connection.serialport, command, data, event)
+    })
+  } else {
+    dialog.showErrorBox('No file of mrbc', 'Select the file of mrbc')
+  }
+})

@@ -1,4 +1,4 @@
-const file = require('../../actions/file')
+const file = require('../../accepts/file')
 
 module.exports = {
   label: 'File',

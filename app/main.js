@@ -1,5 +1,6 @@
 const { app, BrowserWindow, Menu, shell } = require('electron')
 const menus = require('./menus')
+const ipc = require('./ipc')
 
 let mainWindow
 
@@ -13,6 +14,7 @@ function createWindow () {
   if (process.env.NODE_ENV == 'development') {
     mainWindow.webContents.openDevTools()
   }
+  ipc()
 }
 
 app.on('ready', createWindow)

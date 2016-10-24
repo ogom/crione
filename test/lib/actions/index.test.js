@@ -14,19 +14,18 @@ describe('actions', () => {
     )
   })
 
-  it('should create an action to selected a gadget', () => {
+  it('should create an action to select a port', () => {
     const value = {
-      gadget: {
-        serialport: {},
-        version: {}
+      connection: {
+        serialport: {}
       }
     }
     const expectedAction = {
-      type: 'selectedGadget',
+      type: 'selectPort',
       payload: value
     }
     expect(
-      actions.selectedGadget(value)
+      actions.selectPort(value)
     ).toEqual(
       expectedAction
     )

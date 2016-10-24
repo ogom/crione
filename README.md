@@ -40,7 +40,7 @@ $ export PATH=$PATH:`pwd`/bin
 $ git clone https://github.com/ogom/crione.git
 $ cd crione/
 $ npm install
-$ npm run post-install
+$ npm run rebuild:mac
 $ npm start
 ```
 

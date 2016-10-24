@@ -1,11 +1,18 @@
 const { createAction } = require('redux-actions')
 
-exports.saveEdit = createAction('saveEdit')
-exports.selectedFile = createAction('selectedFile')
+// File
+exports.selectFile = createAction('selectFile')
+exports.attachFile = createAction('attachFile')
 exports.saveFile = createAction('saveFile')
 exports.saveAsFile = createAction('saveAsFile')
 
-exports.selectedGadget = createAction('selectedGadget')
+// Connection
+exports.selectPort = createAction('selectPort')
+exports.attachGadget = createAction('attachGadget')
 exports.writeGadget = createAction('writeGadget')
 exports.runGadget = createAction('runGadget')
 exports.buildGadget = createAction('buildGadget')
+
+// Tools
+exports.selectMrbc = createAction('selectMrbc')
+exports.attachMrbc = createAction('attachMrbc')

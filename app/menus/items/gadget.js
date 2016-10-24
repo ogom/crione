@@ -1,4 +1,4 @@
-const gadget = require('../../actions/gadget')
+const gadget = require('../../accepts/gadget')
 
 module.exports = {
   label: 'Gadget',
@@ -24,13 +24,6 @@ module.exports = {
       accelerator: 'CmdOrCtrl+R',
       click(item, focusedWindow) {
         gadget.run(focusedWindow)
-      }
-    },
-    {
-      label: 'Build',
-      accelerator: 'CmdOrCtrl+B',
-      click(item, focusedWindow) {
-        gadget.build(focusedWindow)
       }
     }
   ]

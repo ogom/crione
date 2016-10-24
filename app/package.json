@@ -1,7 +1,7 @@
 {
   "name": "crione",
   "productName": "Crione",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "author": {
     "name": "ogom",
@@ -15,12 +15,13 @@
     "rebuild:mac": "./node_modules/.bin/electron-rebuild"
   },
   "dependencies": {
+    "electron-settings": "^2.2.x",
     "redux-actions": "^0.12.x",
     "serialport": "^4.0.x",
     "setgem": "^0.1.x"
   },
   "license": "MIT",
   "devDependencies": {
-    "electron-rebuild": "^1.3.0"
+    "electron-rebuild": "^1.3.x"
   }
 }
