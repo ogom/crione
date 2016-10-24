@@ -12,6 +12,7 @@ exports.attachGadget = createAction('attachGadget')
 exports.writeGadget = createAction('writeGadget')
 exports.runGadget = createAction('runGadget')
 exports.buildGadget = createAction('buildGadget')
+exports.buildAsGadget = createAction('buildAsGadget')
 
 // Tools
 exports.selectMrbc = createAction('selectMrbc')

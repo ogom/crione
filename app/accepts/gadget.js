@@ -55,6 +55,10 @@ exports.build = (focusedWindow) => {
   focusedWindow.webContents.send('ipc::acceptAction', actions.buildGadget())
 }
 
+exports.buildAs = (focusedWindow) => {
+  focusedWindow.webContents.send('ipc::acceptAction', actions.buildAsGadget())
+}
+
 exports.attachPort = (sender) => {
   settings.get('crione.connection.serialport').then(serialport => {
     if (serialport) {
@@ -152,7 +156,7 @@ ipcMain.on('ipc::nativeAction::runGadget', (event, state, action) => {
 })
 
 ipcMain.on('ipc::nativeAction::writeGadget', (event, state, action) => {
-  if (state.file.path) {
+  if (state.tools.mrbc.path) {
     readmrb(state.file.path, state.tools.mrbc.path, true, (err, data) => {
       const command = ['W', state.file.name + '.mrb', data.length].join(' ')
       send(state.connection.serialport, command, data, event)
@@ -167,6 +171,24 @@ ipcMain.on('ipc::nativeAction::buildGadget', (event, state, action) => {
     readmrb(state.file.path, state.tools.mrbc.path, true, (err, data) => {
       const command = ['X', state.file.name + '.mrb', data.length].join(' ')
       send(state.connection.serialport, command, data, event)
+    })
+  } else {
+    dialog.showErrorBox('No file of mrbc', 'Select the file of mrbc')
+  }
+})
+
+ipcMain.on('ipc::nativeAction::buildAsGadget', (event, state, action) => {
+  if (state.tools.mrbc.path) {
+    fs.writeFile(state.file.path, state.file.value, (err) => {
+      if (err) {
+        dialog.showErrorBox('Write File', err.message)
+      } else {
+        //sender.send('ipc::dispatch', action)
+        readmrb(state.file.path, state.tools.mrbc.path, true, (err, data) => {
+          const command = ['X', state.file.name + '.mrb', data.length].join(' ')
+          send(state.connection.serialport, command, data, event)
+        })
+      }
     })
   } else {
     dialog.showErrorBox('No file of mrbc', 'Select the file of mrbc')

@@ -24,6 +24,13 @@ module.exports = {
       click(item, focusedWindow) {
         gadget.build(focusedWindow)
       }
+    },
+    {
+      label: 'Save and Build',
+      accelerator: 'Option+CmdOrCtrl+B',
+      click(item, focusedWindow) {
+        gadget.buildAs(focusedWindow)
+      }
     }
   ]
 }
