@@ -50,13 +50,17 @@ $ npm start
 
 [![https://gyazo.com/be810ad5b7aebcd66af9bc55feb9569a](https://i.gyazo.com/be810ad5b7aebcd66af9bc55feb9569a.png)](https://gyazo.com/be810ad5b7aebcd66af9bc55feb9569a)
 
+### Select the file of mrbc
+
+[![https://gyazo.com/608f5444de996e49ceef681c004210be](https://i.gyazo.com/608f5444de996e49ceef681c004210be.png)](https://gyazo.com/608f5444de996e49ceef681c004210be)
+
 ### Edit the programming code.
 
 [![https://gyazo.com/8cff9304bdd187745ef5e7f1cc369610](https://i.gyazo.com/8cff9304bdd187745ef5e7f1cc369610.png)](https://gyazo.com/8cff9304bdd187745ef5e7f1cc369610)
 
 ### Writing and Running on the gadget.
 
-[![https://gyazo.com/3fa9819a41d56b2feef41ae322b5963c](https://i.gyazo.com/3fa9819a41d56b2feef41ae322b5963c.png)](https://gyazo.com/3fa9819a41d56b2feef41ae322b5963c)
+[![https://gyazo.com/64eb88d012cea2361ae79a847fdf360a](https://i.gyazo.com/64eb88d012cea2361ae79a847fdf360a.png)](https://gyazo.com/64eb88d012cea2361ae79a847fdf360a)
 
 ## Build
 
