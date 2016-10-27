@@ -5,7 +5,7 @@ const ipc = require('./ipc')
 let mainWindow
 
 function createWindow () {
-  mainWindow = new BrowserWindow({width: 1200, height: 600})
+  mainWindow = new BrowserWindow({width: 1200, height: 800})
   mainWindow.loadURL(`file://${__dirname}/index.html`)
   mainWindow.on('closed', function () {
     mainWindow = null
