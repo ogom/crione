@@ -1,5 +1,8 @@
 #!mruby
 
+serial = Serial.new(0)
+serial.println "start Signal"
+
 GREEN1  = 1
 YELLOW1 = 2
 RED1    = 3
@@ -15,9 +18,6 @@ def light(x, y, time=600)
   digitalWrite(y, 1)
   delay time
 end
-
-serial = Serial.new(0)
-serial.println "start Signal"
 
 1.upto(6) { |n| pinMode(n, 1) }
 
