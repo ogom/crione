@@ -28,14 +28,6 @@ describe('reducers', () => {
     }
   })
 
-  it('should return the initial state', () => {
-    expect(
-      reducers(undefined, {type: ''})
-    ).toEqual(
-      state
-    )
-  })
-
   it('should return the attach a file', () => {
     const value = '#!mruby'
     state.file.value = value

@@ -2,10 +2,6 @@
 
 var path = require('path')
 var webpack = require('webpack')
-var postcssImport = require('postcss-import')
-var autoprefixer = require('autoprefixer')
-var precss = require('precss')
-var calc = require('postcss-calc')
 
 module.exports = {
   entry: [
@@ -21,38 +17,25 @@ module.exports = {
     loaders: [
       {
         test: /\.html$/,
-        loader: 'file?name=[name].[ext]'
+        loader: 'file-loader?name=[name].[ext]'
       },
       {
         test: /\.css$/,
         include: /lib/,
         loaders: [
-          'style',
-          'css?modules',
-          'postcss'
+          'style-loader',
+          'css-loader?modules',
+          'postcss-loader'
         ]
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
         loaders: [
-          'babel'
+          'babel-loader'
         ]
       }
     ]
-  },
-  postcss(webpack) {
-    return [
-      postcssImport({
-        addDependencyTo: webpack
-      }),
-      autoprefixer,
-      precss,
-      calc
-    ]
-  },
-  resolve: {
-    extensions: ['', '.js', '.css']
   },
   target: 'electron'
 }
