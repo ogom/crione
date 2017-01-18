@@ -7,6 +7,7 @@
     "start:production": "NODE_ENV=production electron ./app/main.js",
     "build": "NODE_ENV=production webpack -p --config webpack.config.production.js",
     "pack:mac": "electron-packager ./app --asar --icon=./assets/app.icons --overwrite --platform=darwin --arch=x64 --prune=true --out=dist",
+    "pack:win": "electron-packager .\\app --asar --icon=.\\assets\\app.ico --overwrite --platform=win32 --arch=x64 --prune=true --out=dist",
     "rebuild:mac": "./node_modules/.bin/electron-rebuild",
     "webpack-details": "webpack --display-error-details",
     "test": "jest",
