@@ -38,9 +38,9 @@ $ make
 ```bash
 $ git clone https://github.com/ogom/crione.git
 $ cd crione/
-$ npm install
-$ npm run rebuild:mac
-$ npm start
+$ yarn install
+$ yarn rebuild:mac
+$ yarn start
 ```
 
 ## Usage
