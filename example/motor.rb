@@ -72,10 +72,10 @@ class Gearbox
     @motor2.cw
   end
 
-  def move(speed=0, time=0)
-    self._accelerate(speed)
+  def move(time=0, speed=0)
+    _accelerate(speed)
     delay time - (speed * 4)
-    self._decelerate(speed)
+    _decelerate(speed)
   end
 
   def _accelerate(speed)
@@ -94,24 +94,24 @@ class Gearbox
 end
 
 class Vehicle < Gearbox
-  def forward(speed, time)
-    self.drive
-    self.move(speed, time)
+  def forward(time=2000, speed=200)
+    drive
+    move(time, speed)
   end
 
-  def backward(speed, time)
-    self.reverse
-    self.move(speed, time)
+  def backward(time=2000, speed=200)
+    reverse
+    move(time, speed)
   end
   
-  def rightward(speed, time)
-    self.cw
-    self.move(speed, time)
+  def rightward(time=1800, speed=180)
+    cw
+    move(time, speed)
   end
     
-  def leftward(speed, time)
-    self.ccw
-    self.move(speed, time)
+  def leftward(time=1800, speed=180)
+    ccw
+    move(time, speed)
   end
 end
 
@@ -125,16 +125,16 @@ vehicle = Vehicle.new(
 
 vehicle.stop
 
-usb.println "Move forward"
-vehicle.forward(180, 1800)
+usb.println "...Move forward"
+vehicle.forward
 
-usb.println "Turn right"
-vehicle.rightward(180, 1800)
+usb.println "...Turn right"
+vehicle.rightward
 
-usb.println "Turn left"
-vehicle.leftward(180, 1800)
+usb.println "...Turn left"
+vehicle.leftward
 
-usb.println "Move backward"
-vehicle.backward(180, 1800)
+usb.println "...Move backward"
+vehicle.backward
 
 vehicle.brake
