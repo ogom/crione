@@ -86,7 +86,7 @@ class Gearbox
   end
   
   def _decelerate(speed)
-    speed.upto(0) do |num|
+    speed.downto(0) do |num|
       self.speed = num
       delay 2
     end
